@@ -1,0 +1,12 @@
+{
+  "fileOptions": {
+    "systemExcludeSearchPatterns": [
+      "**/node_modules/**/*",
+      "**/bin/**/*",
+      "**/docker/**/*",
+      "**/pgdata/**/*",
+      "**/obj/**/*"
+    ],
+    "excludeSearchPatterns": []
+  }
+}

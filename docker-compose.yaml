@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+
+  dynamodb:
+    container_name: "dynamodb"
+    image: "amazon/dynamodb-local:latest"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+
+  keycloak:
+    container_name: "keycloak"
+    image: quay.io/keycloak/keycloak:19.0.3
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KEYCLOAK_ADMIN: "admin"
+      KEYCLOAK_ADMIN_PASSWORD: "admin"
+    volumes:
+      - "./docker/keycloak:/opt/keycloak/data/import"
+    ports:
+      - "8080:8080"
