@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-api-east",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/isz.lockbox.service.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary",
+        "--configuration",
+        "DEV"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "start-docker-compose",
+      "command": "docker-compose",
+      "type": "process",
+      "args": [
+        "-f",
+        "./docker-compose.yaml",
+        "up",
+        "-d"
+      ],
+      "dependsOn": "remove-dynamodb"
+    },
+    {
+      "label": "remove-dynamodb",
+      "command": "docker-compose -f ./docker-compose.yaml down || true",
+      "type": "shell",
+    }
+  ]
+}

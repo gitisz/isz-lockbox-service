@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ISZ.LOCKBOX.SERVICE",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api-east",
+      "program": "${workspaceFolder}/bin/DEV/net6.0/isz.lockbox.service.dll",
+      "args": [
+        "--host",
+        "5001"
+      ],
+      "cwd": "${workspaceFolder}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "stopAtEntry": false,
+      "launchBrowser": {
+        "enabled": false
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "DEV",
+        "AWS_REGIN": "us-east-1",
+        "AWS_DEFAULT_REGION": "us-east-1",
+        "AWS_DEFAULT_PROFILE": "",
+        "AWS_ACCESS_KEY_ID": "THEHAND",
+        "AWS_SECRET_ACCESS_KEY=": "THEHAND"
+      }
+    }
+  ]
+}
