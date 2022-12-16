@@ -3,6 +3,9 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Microsoft.Extensions.Options;
+using Keycloak.AuthServices.Sdk.AuthZ;
+
+
 using isz.lockbox.service.Models;
 
 namespace isz.lockbox.service.Providers;
@@ -30,7 +33,9 @@ public class LockboxServiceProvider
     _clientConfig = new AmazonDynamoDBConfig();
     _clientConfig.RegionEndpoint = RegionEndpoint.USEast1;
     _clientConfig.ServiceURL = _awsConfiguration.Value.EndpointDefinition;
+
   }
+
 
   public async Task UpsertAsync(Lockbox lockbox)
   {

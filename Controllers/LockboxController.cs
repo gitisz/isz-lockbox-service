@@ -5,6 +5,7 @@ using isz.lockbox.service.Models;
 using isz.lockbox.service.Providers;
 using System.Text.Json;
 
+
 namespace isz.lockbox.service.Controllers;
 
 [ApiController]
@@ -14,6 +15,7 @@ public class LockboxController : ControllerBase
   private readonly Serilog.ILogger _logger;
 
   private LockboxServiceProvider _lockboxServiceProvider { get; }
+
 
   public LockboxController(Serilog.ILogger logger,
     LockboxServiceProvider lockboxServiceProvider
